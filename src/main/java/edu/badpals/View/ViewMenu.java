@@ -128,4 +128,16 @@ public class ViewMenu {
         }
     }
 
+    public void borrarPeliculaPorId(Connection conector, Scanner sc) throws SQLException {
+        System.out.println("Dame el ID de la pelicula a borrar: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Pelicula pelicula = conectar.obtenerPeliculaPorId(conector, id);
+        if (pelicula != null) {
+            conectar.borrarPeliculaPorId(conector, id);
+            System.out.println("Pelicula con ID: " + id + " borrada correctamente.");
+        } else {
+            System.out.println("No se encontró la película con el ID: " + id);
+        }
+    }
 }

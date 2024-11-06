@@ -63,11 +63,20 @@ public class ConnectionDDBB {
                             rs.getString("guion"),
                             rs.getBoolean("disponible")
                     );
-                } else {
-                    System.out.println("No se ha encontrado ninguna película con el ID: " + id);
                 }
             }
         }
         return null;
+    }
+
+    public void borrarPeliculaPorId(Connection conector, int id) {
+        String deleteFilmById = "DELETE FROM t_peliculas WHERE id = ?";
+        try (PreparedStatement st = conector.prepareStatement(deleteFilmById)) {
+            st.setInt(1, id);
+            int numFilasBorradas = st.executeUpdate();
+            System.out.println("Pelicula eliminada, número de peliculas eliminadas: " + numFilasBorradas);
+        } catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+        }
     }
 }
