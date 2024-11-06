@@ -55,7 +55,7 @@ public class ConnectionDDBB {
             st.setInt(1, id);
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {
-                    Pelicula film = new Pelicula(
+                    return new Pelicula(
                             rs.getInt("id"),
                             rs.getString("titulo"),
                             rs.getString("actor_protagonista"),
@@ -63,7 +63,6 @@ public class ConnectionDDBB {
                             rs.getString("guion"),
                             rs.getBoolean("disponible")
                     );
-                    return film;
                 } else {
                     System.out.println("No se ha encontrado ninguna película con el ID: " + id);
                 }
