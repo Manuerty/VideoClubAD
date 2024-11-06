@@ -1,0 +1,18 @@
+
+CREATA DATABASE DB_VIDEOCLUB;
+
+/* CREATE TABLE T_PELICULAS (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    TITULO VARCHAR(255) NOT NULL,
+    ACTOR_PROTAGONISTA VARCHAR(255) NOT NULL,
+    TEMATICA ENUM('Acción', 'Aventura', 'Ciencia Ficción', 'Romance', 'Terror') NOT NULL,
+    GUION TEXT,
+    DISPONIBLE BOOLEAN DEFAULT TRUE
+);
+
+INSERT INTO T_PELICULAS (TITULO, ACTOR_PROTAGONISTA, TEMATICA, GUION, DISPONIBLE) VALUES
+('Inception', 'Leonardo DiCaprio', 'Ciencia Ficción', 'Un ladrón que roba secretos a través de sueños recibe el desafío de implantar una idea en la mente de una persona.', TRUE),
+('Titanic', 'Leonardo DiCaprio', 'Romance', 'Historia de amor entre Jack y Rose durante el trágico viaje del Titanic.', FALSE),
+('The Matrix', 'Keanu Reeves', 'Acción', 'Un hacker descubre que la realidad es una simulación y se une a la resistencia contra las máquinas.', TRUE),
+('Jurassic Park', 'Sam Neill', 'Aventura', 'Científicos recrean dinosaurios y deben enfrentar las consecuencias de traerlos de regreso a la vida en una isla remota.', TRUE),
+('It', 'Bill Skarsgård', 'Terror', 'Un grupo de niños se enfrenta a un ente malvado en forma de payaso que aterroriza su pueblo.', FALSE); */
