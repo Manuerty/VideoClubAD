@@ -140,4 +140,73 @@ public class ViewMenu {
             System.out.println("No se encontró la película con el ID: " + id);
         }
     }
+
+    public void actualizarPeliculaPorId(Connection conector, Scanner sc) throws SQLException {
+        System.out.println("Dame el ID de la pelicula a actualizar: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Pelicula pelicula = conectar.obtenerPeliculaPorId(conector, id);
+        if (pelicula != null) {
+            System.out.println("Dame el nuevo titulo de la pelicula: ");
+            String titulo = sc.nextLine();
+
+            System.out.println("Dame el nuevo actor protagonista: ");
+            String actor_protagonista = sc.nextLine();
+
+            System.out.println("Dame la nueva tematica: ");
+            boolean continuar = true;
+            String tematica = "";
+            while (continuar) {
+                System.out.println("-- OPCIONES --");
+                System.out.println(" 1. Accion");
+                System.out.println(" 2. Aventura");
+                System.out.println(" 3. Ciencia_Ficcion");
+                System.out.println(" 4. Romance");
+                System.out.println(" 5. Terror");
+                System.out.print("Seleccione una opción (1-5): ");
+
+                if (sc.hasNextInt()) {
+                    int opcion = sc.nextInt();
+                    sc.nextLine();
+                    continuar = false;
+
+                    switch (opcion) {
+                        case 1 -> tematica = "Accion";
+                        case 2 -> tematica = "Aventura";
+                        case 3 -> tematica = "Ciencia_Ficcion";
+                        case 4 -> tematica = "Romance";
+                        case 5 -> tematica = "Terror";
+                        default -> {
+                            continuar = true;
+                            System.out.println("Opción no válida.");
+                        }
+                    }
+                } else {
+                    System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 5.");
+                    sc.nextLine();  // Consumir la nueva línea después de la entrada inválida
+                }
+            }
+
+            System.out.println("Dame el nuevo guion: ");
+            String guion = sc.nextLine();
+
+            System.out.println("Dame el nuevo estado de la pelicula: ");
+            boolean continuarEstado = true;
+            String disponible = "";
+            while (continuarEstado) {
+                System.out.println("-- OPCIONES --");
+                System.out.println(" 1. Disponible");
+                System.out.println(" 2. No disponible");
+                System.out.print("Seleccione una opción (1-2): ");
+
+
+            }
+
+            Pelicula nuevaPelicula = new Pelicula(id, titulo, actor_protagonista, Pelicula.Tematica.valueOf(tematica), guion, Pelicula.isDisponible(disponible));
+            conectar.actualizarPeliculaPorId(conector, nuevaPelicula);
+        }
+        else {
+            System.out.println("No se encontró la película con el ID: " + id);
+        }
+    }
 }

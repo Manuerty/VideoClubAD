@@ -38,7 +38,7 @@ public class Menu {
                         case 1 -> viewMenu.listarPeliculas(conector);
                         case 2 -> viewMenu.obtenerPeliculaPorId(conector, scanner);
                         case 3 -> viewMenu.borrarPeliculaPorId(conector, scanner);
-                        // case 4 -> viewMenu.actualizarPeliculaPorId(conector, scanner);
+                        case 4 -> viewMenu.actualizarPeliculaPorId(conector, scanner);
                         case 5 -> viewMenu.insertarPelicula(conector, scanner);
                         case 6 -> System.out.println("Saliendo del programa...");
                         default -> System.out.println("Opción no válida.");

@@ -79,4 +79,22 @@ public class ConnectionDDBB {
             System.err.println("Error SQL: " + e.getMessage());
         }
     }
+
+    public void actualizarPeliculaPorId(Connection conector, Pelicula pelicula) {
+
+        String updateFilmById = "UPDATE t_peliculas SET titulo = ?, actor_protagonista = ?, tematica = ?, guion = ?, disponible = ? WHERE id = ?";
+        try (PreparedStatement st = conector.prepareStatement(updateFilmById)) {
+            st.setString(1, pelicula.getTitulo());
+            st.setString(2, pelicula.getActor_protagonista());
+            st.setString(3, pelicula.getTematica().toString());
+            st.setString(4, pelicula.getGuion());
+            st.setBoolean(5, pelicula.getDisponible());
+            st.setInt(6, pelicula.getID());
+            int numFilasActualizadas = st.executeUpdate();
+            System.out.println("Pelicula actualizada, número de peliculas actualizadas: " + numFilasActualizadas);
+        } catch (SQLException e) {
+            System.err.println("Error SQL: " + e.getMessage());
+        }
+    }
+
 }
