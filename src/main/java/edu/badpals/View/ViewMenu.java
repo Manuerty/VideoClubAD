@@ -199,6 +199,24 @@ public class ViewMenu {
                 System.out.println(" 2. No disponible");
                 System.out.print("Seleccione una opción (1-2): ");
 
+                if (sc.hasNextInt()) {
+                    int opcion = sc.nextInt();
+                    sc.nextLine();
+                    continuarEstado = false;
+
+                    switch (opcion) {
+                        case 1 -> disponible = "Disponible";
+                        case 2 -> disponible = "No disponible";
+                        default -> {
+                            continuarEstado = true;
+                            System.out.println("Opción no válida.");
+                        }
+                    }
+                } else {
+                    System.out.println("Entrada no válida. Por favor ingrese un número entre 1 y 2.");
+                    sc.nextLine();
+                }
+
 
             }
 
